@@ -31,8 +31,8 @@ csv
 
    carManufacturersHeb[data.manufacturerNo] = data.manufacturerName.trim();
 
-   if (!carModelsUnique.includes(car.manufacturerName +'_'+ car.modelSeries+ '_'+car.modelName)) {
-       carModelsUnique.push(car.manufacturerName +'_'+ car.modelSeries+ '_'+car.modelName)
+   if (!carModelsUnique.includes(car.manufacturerName +'_'+ car.modelSeries)) {
+       carModelsUnique.push(car.manufacturerName +'_'+ car.modelSeries)
        if (!carModels[car.manufacturerName])
            carModels[car.manufacturerName] = [];
 
