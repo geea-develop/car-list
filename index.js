@@ -5,6 +5,7 @@ var fs = require('fs');
 var carManufacturers = require('./carManufactureresEng');
 carManufacturers = Object.keys(carManufacturers);
 var carModels = {};
+var carModelsUnique = [];
 var carManufacturersHeb = {};
 
 // const manufacturersEng = require('./carManufactureresEng')
@@ -27,12 +28,16 @@ csv
      modelSeries: data.modelSeries.trim(),
      engineCapacity: data.engineCapacity
    }
-     carManufacturersHeb[data.manufacturerNo] = data.manufacturerName.trim();
 
-   if (!carModels[car.manufacturerName])
-    carModels[car.manufacturerName] = [];
+   carManufacturersHeb[data.manufacturerNo] = data.manufacturerName.trim();
 
-   carModels[car.manufacturerName].push(car)
+   if (!carModelsUnique.includes(car.manufacturerName +'_'+ car.modelSeries+ '_'+car.modelName)) {
+       carModelsUnique.push(car.manufacturerName +'_'+ car.modelSeries+ '_'+car.modelName)
+       if (!carModels[car.manufacturerName])
+           carModels[car.manufacturerName] = [];
+
+       carModels[car.manufacturerName].push(car)
+   }
 
  })
  .on("end", function(){
