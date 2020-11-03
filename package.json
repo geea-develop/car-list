@@ -9,6 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "fast-csv": "^4.3.2"
+    "fast-csv": "^4.3.5"
   }
 }
